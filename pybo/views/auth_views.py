@@ -61,7 +61,7 @@ def login_required(view):
         return view(*arg, **kwargs)
     return wrapped_view
     
-@bp.before_request
+@bp.before_app_request
 def load_logged_in_user():
     user_id = session.get('user_id')
     if user_id is None :
